@@ -30,3 +30,4 @@ C:\Users\Dell\source\repos\FirstApi\obj\Debug\net8.0\refint\FirstApi.dll
 C:\Users\Dell\source\repos\FirstApi\obj\Debug\net8.0\FirstApi.pdb
 C:\Users\Dell\source\repos\FirstApi\obj\Debug\net8.0\FirstApi.genruntimeconfig.cache
 C:\Users\Dell\source\repos\FirstApi\obj\Debug\net8.0\ref\FirstApi.dll
+C:\Users\Dell\source\repos\FirstApi\obj\Debug\net8.0\FirstApi.sourcelink.json

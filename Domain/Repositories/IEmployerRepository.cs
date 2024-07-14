@@ -6,7 +6,7 @@ namespace FirstApi.Domain.Repositories
     {
         Task<List<Employer>> FindEmployers();
         Task<Employer> FindEmployer(int id);
-        Task<Employer> AdicionarUsuario(Employer employer);
+        Employer AdicionarUsuario(Employer employer);
         Task<Employer> EditarUsuario(Employer employer, int id);
         Task<string> DeletarUsuario(int id);
     }
