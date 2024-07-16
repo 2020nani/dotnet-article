@@ -4,10 +4,10 @@ namespace FirstApi.Domain.ValueObjects
 {
     public class Payment
     {
-        public BigInteger salary { get; set; }
-        public BigInteger benefits { get; set; }
+        public double salary { get; set; }
+        public double benefits { get; set; }
 
-        public BigInteger getPaymentTotal()
+        public double getPaymentTotal()
         {
             return salary + benefits;
     }

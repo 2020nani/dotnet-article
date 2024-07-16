@@ -7,11 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <Compile Remove="Domain\NovaPasta1\**" />
+    <Compile Remove="Domain\NovaPasta\**" />
+    <Content Remove="Domain\NovaPasta1\**" />
+    <Content Remove="Domain\NovaPasta\**" />
+    <EmbeddedResource Remove="Domain\NovaPasta1\**" />
+    <EmbeddedResource Remove="Domain\NovaPasta\**" />
+    <None Remove="Domain\NovaPasta1\**" />
+    <None Remove="Domain\NovaPasta\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Infrastructure\" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
 </Project>

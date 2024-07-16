@@ -5,17 +5,17 @@ namespace FirstApi.Infrastructure.Repositories
 {
     public class EmployerRepository : IEmployerRepository
     {
-        Employer IEmployerRepository.AdicionarUsuario(Employer employer)
+        Employer IEmployerRepository.Register(Employer employer)
         {
             return employer;
         }
 
-        Task<string> IEmployerRepository.DeletarUsuario(int id)
+        Task<string> IEmployerRepository.DeleteEmployer(int id)
         {
             throw new NotImplementedException();
         }
 
-        Task<Employer> IEmployerRepository.EditarUsuario(Employer employer, int id)
+        Task<Employer> IEmployerRepository.UpdateEmployer(Employer employer, int id)
         {
             throw new NotImplementedException();
         }
@@ -29,5 +29,6 @@ namespace FirstApi.Infrastructure.Repositories
         {
             throw new NotImplementedException();
         }
+
     }
 }

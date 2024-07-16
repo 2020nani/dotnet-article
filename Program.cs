@@ -1,4 +1,8 @@
 
+using FirstApi.Application.UseCases.CasesEmployer.Register;
+using FirstApi.Domain.Repositories;
+using FirstApi.Infrastructure.Repositories;
+
 namespace FirstApi
 {
     public class Program
@@ -8,7 +12,8 @@ namespace FirstApi
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-
+            builder.Services.AddScoped<IEmployerRepository, EmployerRepository>();
+            builder.Services.AddScoped<IRegisterEmployerService, RegisterEmployerService>();
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
