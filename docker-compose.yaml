@@ -1,0 +1,27 @@
+﻿﻿version: '3'
+
+services:
+
+  net-db:
+    image: 'postgres:alpine'
+    container_name: adress-db
+    volumes:
+      - adress-volume:/var/lib/postgresql/data
+    ports:
+      - 5433:5432
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: net
+      POSTGRES_HOST: net-db
+    networks:
+      - orchestrator-saga
+  
+volumes:
+  adress-volume:
+  userregistration-volume:
+  validated-document-volume:
+
+networks:
+  orchestrator-saga:
+    driver: bridge

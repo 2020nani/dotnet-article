@@ -1,0 +1,9 @@
+﻿criar migration banco de dados
+Add-Migration InitialDB -Context SystemDbContext
+/* Comandos para utilizar na aplicação
+ * Migrar mapeamento de tabelas para o DataBase
+   Rodar seguinte comando no packagemanager console
+ - Add-Migration InitialDB -Context <nome do contexto a ser migrado>
+ * Criar tabelas no database a partir das migrations geradas
+ - Update-Database -Context <nome do contexto a ser migrado>
+ */
