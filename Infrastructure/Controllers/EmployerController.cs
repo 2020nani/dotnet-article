@@ -1,4 +1,6 @@
 ﻿using FirstApi.Application.UseCases.CasesEmployer;
+using FirstApi.Application.UseCases.CasesEmployer.ConsultEmployer;
+using FirstApi.Application.UseCases.CasesEmployer.DeleteEmployer;
 using FirstApi.Application.UseCases.CasesEmployer.Register;
 using FirstApi.Application.UseCases.CasesEmployer.UpdateEmployer;
 using FirstApi.Domain.Entities;
@@ -10,27 +12,51 @@ namespace FirstApi.Infrastructure.Controllers
     [ApiController]
     public class EmployerController
     {
-        private  IRegisterEmployerService _service;
+        private  IRegisterEmployerService _registerService;
         private IUpdateEmployerService _updateService;
+        private IConsultEmployerService _consultService;
+        private IDeleteEmployerService _deleteService;
 
         public EmployerController(
-            IRegisterEmployerService service, 
-            IUpdateEmployerService updateService)
+            IRegisterEmployerService service,
+            IUpdateEmployerService updateService,
+            IConsultEmployerService consultService,
+            IDeleteEmployerService deleteService)
         {
-            _service = service;
+            _registerService = service;
             _updateService = updateService;
+            _consultService = consultService;
+            _deleteService = deleteService;
         }
 
         [HttpPost]
         public RegisterEmployerOutput Post([FromBody] RegisterEmployerInput input)
         {
-            return _service.Execute(input);
+            return _registerService.Execute(input);
         }
 
         [HttpPut]
         public UpdateEmployerOutput Put([FromBody] UpdateEmployerInput input)
         {
             return _updateService.Execute(input);
+        }
+
+        [HttpGet("{id}")]
+        public ConsultEmployerOutput findEmployer(int id)
+        {
+            return _consultService.FindEmployerById(id);
+        }
+
+        [HttpGet]
+        public List<ConsultEmployerOutput> findEmployers()
+        {
+            return _consultService.FindEmployers();
+        }
+
+        [HttpDelete("{id}")]
+        public string Delete(int id)
+        {
+            return _deleteService.DeleteEmployer(id);
         }
     }
 }

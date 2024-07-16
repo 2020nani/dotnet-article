@@ -5,16 +5,16 @@ namespace FirstApi.Application.UseCases.CasesEmployer.Register
 {
     public class RegisterEmployerService : IRegisterEmployerService
     {
-        private IEmployerRepository repository;
+        private IEmployerRepository _employerRepository;
         public RegisterEmployerService(IEmployerRepository repository)
         {
-            this.repository = repository;
+            this._employerRepository = repository;
         }
 
         public RegisterEmployerOutput Execute(RegisterEmployerInput employerInput)
         {
             RegisterEmployerOutput output = new RegisterEmployerOutput();
-            output.Employer = repository.Register(employerInput.convert());
+            output.Employer = _employerRepository.Register(employerInput.convert()).Result;
             return output;
         }
     }

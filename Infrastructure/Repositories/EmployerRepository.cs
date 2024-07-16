@@ -1,33 +1,46 @@
 ﻿using FirstApi.Domain.Entities;
 using FirstApi.Domain.Repositories;
+using FirstApi.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace FirstApi.Infrastructure.Repositories
 {
     public class EmployerRepository : IEmployerRepository
     {
-        Employer IEmployerRepository.Register(Employer employer)
+        private readonly SystemDbContext _Dbcontext;
+
+        public EmployerRepository(SystemDbContext context)
         {
+            _Dbcontext = context;
+        }
+
+        async Task<Employer> IEmployerRepository.Register(Employer employer)
+        {
+            await _Dbcontext.Employers.AddAsync(employer);
+            _Dbcontext.SaveChanges();
             return employer;
         }
 
-        Task<string> IEmployerRepository.DeleteEmployer(int id)
+        void IEmployerRepository.DeleteEmployer(Employer employer)
         {
-            throw new NotImplementedException();
+            _Dbcontext.Employers.Remove(employer);
         }
 
-        Task<Employer> IEmployerRepository.UpdateEmployer(Employer employer, int id)
+        async Task<Employer> IEmployerRepository.UpdateEmployer(Employer employer)
         {
-            throw new NotImplementedException();
+            _Dbcontext.Employers.Update(employer);
+            await _Dbcontext.SaveChangesAsync();
+            return employer;
         }
 
-        Task<Employer> IEmployerRepository.FindEmployer(int id)
+        async Task<Employer> IEmployerRepository.FindEmployer(int id)
         {
-            throw new NotImplementedException();
+            return await _Dbcontext.Employers.FirstOrDefaultAsync(u => u.Id == id);
         }
 
-        Task<List<Employer>> IEmployerRepository.FindEmployers()
+        async Task<List<Employer>> IEmployerRepository.FindEmployers()
         {
-            throw new NotImplementedException();
+            return await _Dbcontext.Employers.ToListAsync();
         }
 
     }

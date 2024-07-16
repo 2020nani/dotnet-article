@@ -1,4 +1,6 @@
 
+using FirstApi.Application.UseCases.CasesEmployer.ConsultEmployer;
+using FirstApi.Application.UseCases.CasesEmployer.DeleteEmployer;
 using FirstApi.Application.UseCases.CasesEmployer.Register;
 using FirstApi.Application.UseCases.CasesEmployer.UpdateEmployer;
 using FirstApi.Domain.Repositories;
@@ -19,6 +21,8 @@ namespace FirstApi
             builder.Services.AddScoped<IEmployerRepository, EmployerRepository>();
             builder.Services.AddScoped<IRegisterEmployerService, RegisterEmployerService>();
             builder.Services.AddScoped<IUpdateEmployerService, UpdateEmployerService>();
+            builder.Services.AddScoped<IConsultEmployerService, ConsultEmployerService>();
+            builder.Services.AddScoped<IDeleteEmployerService, DeleteEmployerService>();
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();

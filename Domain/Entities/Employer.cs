@@ -10,7 +10,6 @@ namespace FirstApi.Domain.Entities
         public string? Nome { get; set; }
         public string? cargo { get; set; }
 
-        [NotMapped]
         public Payment? payment { get; set; }
         public double? paymentTotal { get; set; }
 

@@ -5,19 +5,23 @@ namespace FirstApi.Application.UseCases.CasesEmployer.UpdateEmployer
 {
     public class UpdateEmployerService : IUpdateEmployerService
     {
-        private IEmployerRepository repository;
+        private IEmployerRepository _employerRepository;
 
         public UpdateEmployerService(IEmployerRepository repository)
         {
-            this.repository = repository;
+            this._employerRepository = repository;
         }
 
         UpdateEmployerOutput IUpdateEmployerService.Execute(UpdateEmployerInput input)
         {
             UpdateEmployerOutput output = new UpdateEmployerOutput();
-            Employer actualEmployer = repository.FindEmployer(input._Id).Result;
-            repository.Register(input.updateEmployer(actualEmployer));
-            return output.convert(actualEmployer);
+            Employer actualEmployer = _employerRepository.FindEmployer(input._Id).Result;
+            if (actualEmployer == null)
+            {
+                throw new Exception($"Usuario com id: {input._Id} nao encontrado");
+            };
+            Employer newData = _employerRepository.UpdateEmployer(input.updateEmployer(actualEmployer)).Result;
+            return output.convert(newData);
         }
     }
 }
