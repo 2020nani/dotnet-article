@@ -1,7 +1,6 @@
 ﻿
 using FirstApi.Domain.Entities;
 using FirstApi.Domain.ValueObjects;
-using System.Numerics;
 
 namespace FirstApi.Application.UseCases.CasesEmployer.Register
 {

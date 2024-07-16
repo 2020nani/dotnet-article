@@ -11,9 +11,11 @@ namespace FirstApi.Application.UseCases.CasesEmployer.Register
             this.repository = repository;
         }
 
-        public Employer Execute(RegisterEmployerInput employerInput)
+        public RegisterEmployerOutput Execute(RegisterEmployerInput employerInput)
         {
-            return repository.Register(employerInput.convert());
+            RegisterEmployerOutput output = new RegisterEmployerOutput();
+            output.Employer = repository.Register(employerInput.convert());
+            return output;
         }
     }
 }

@@ -4,6 +4,6 @@ namespace FirstApi.Application.UseCases.CasesEmployer.Register
 {
     public interface IRegisterEmployerService
     {
-        public Employer Execute(RegisterEmployerInput employerInput);
+        public RegisterEmployerOutput Execute(RegisterEmployerInput employerInput);
     }
 }
