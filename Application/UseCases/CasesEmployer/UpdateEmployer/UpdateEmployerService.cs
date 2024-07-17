@@ -1,5 +1,6 @@
 ﻿using FirstApi.Domain.Entities;
 using FirstApi.Domain.Repositories;
+using FirstApi.Infrastructure.CustomException;
 
 namespace FirstApi.Application.UseCases.CasesEmployer.UpdateEmployer
 {
@@ -18,7 +19,7 @@ namespace FirstApi.Application.UseCases.CasesEmployer.UpdateEmployer
             Employer actualEmployer = _employerRepository.FindEmployer(input._Id).Result;
             if (actualEmployer == null)
             {
-                throw new Exception($"Usuario com id: {input._Id} nao encontrado");
+                throw new AppNotFoundException($"Usuario com id: {input._Id} nao encontrado");
             };
             Employer newData = _employerRepository.UpdateEmployer(input.updateEmployer(actualEmployer)).Result;
             return output.convert(newData);

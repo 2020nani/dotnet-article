@@ -1,6 +1,7 @@
 ﻿
 using FirstApi.Domain.Entities;
 using FirstApi.Domain.Repositories;
+using FirstApi.Infrastructure.CustomException;
 
 namespace FirstApi.Application.UseCases.CasesEmployer.ConsultEmployer
 {
@@ -19,7 +20,7 @@ namespace FirstApi.Application.UseCases.CasesEmployer.ConsultEmployer
             Employer employer = _employerRepository.FindEmployer(id).Result;
             if (employer == null)
             {
-                throw new Exception($"Usuario com id: {id} nao encontrado");
+                throw new AppNotFoundException($"Usuario com id: {id} nao encontrado");
             };
             return output.convert(employer);
         }
