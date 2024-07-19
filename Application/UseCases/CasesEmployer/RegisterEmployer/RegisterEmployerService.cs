@@ -3,7 +3,7 @@ using FirstApi.Domain.Repositories;
 
 namespace FirstApi.Application.UseCases.CasesEmployer.Register
 {
-    public class RegisterEmployerService : IRegisterEmployerService
+    public class RegisterEmployerService : IUseCasesEmployerFacade<RegisterEmployerOutput, RegisterEmployerInput>
     {
         private IEmployerRepository _employerRepository;
         public RegisterEmployerService(IEmployerRepository repository)
@@ -17,5 +17,6 @@ namespace FirstApi.Application.UseCases.CasesEmployer.Register
             output.Employer = _employerRepository.Register(employerInput.convert()).Result;
             return output;
         }
+
     }
 }

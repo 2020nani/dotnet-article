@@ -12,13 +12,13 @@ namespace FirstApi.Infrastructure.Controllers
     [ApiController]
     public class EmployerController
     {
-        private  IRegisterEmployerService _registerService;
+        private  IUseCasesEmployerFacade<RegisterEmployerOutput,RegisterEmployerInput> _registerService;
         private IUpdateEmployerService _updateService;
         private IConsultEmployerService _consultService;
         private IDeleteEmployerService _deleteService;
 
         public EmployerController(
-            IRegisterEmployerService service,
+            IUseCasesEmployerFacade<RegisterEmployerOutput, RegisterEmployerInput> service,
             IUpdateEmployerService updateService,
             IConsultEmployerService consultService,
             IDeleteEmployerService deleteService)
