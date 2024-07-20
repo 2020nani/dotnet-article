@@ -1,0 +1,16 @@
+﻿version: '3'
+
+services:
+
+ net-db:
+   image: 'postgres:alpine'
+   volumes:
+     - postgres-volume:/var/lib/postgresql/data
+   ports:
+     - 5433:5432
+   environment:
+     POSTGRES_USER: admin
+     POSTGRES_PASSWORD: password
+     POSTGRES_DB: net
+volumes:
+  postgres-volume:
