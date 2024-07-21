@@ -6,13 +6,13 @@ namespace FirstApi.Application.UseCases.CasesEmployer.UpdateEmployer
     {
         public int Id { get; set; }
         public string? Name { get; set; }
-        public string? message { get; set; }
+        public string? Message { get; set; }
 
         public UpdateEmployerOutput convert(Employer actualEmployer)
         {
             Id = actualEmployer.Id;
             Name = actualEmployer.Nome;
-            message = "Update has a success";
+            Message = "Update has a success";
             return this;
         }
     }

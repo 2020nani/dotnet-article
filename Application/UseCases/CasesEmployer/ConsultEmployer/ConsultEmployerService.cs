@@ -20,9 +20,9 @@ namespace FirstApi.Application.UseCases.CasesEmployer.ConsultEmployer
             Employer employer = _employerRepository.FindEmployer(id).Result;
             if (employer == null)
             {
-                throw new AppNotFoundException($"Usuario com id: {id} nao encontrado");
+                throw new AppNotFoundException($"Employer com id: {id} nao encontrado");
             };
-            return output.convert(employer);
+            return output.Convert(employer);
         }
 
         List<ConsultEmployerOutput> IConsultEmployerService.FindEmployers()
@@ -30,7 +30,7 @@ namespace FirstApi.Application.UseCases.CasesEmployer.ConsultEmployer
             ConsultEmployerOutput output = new ConsultEmployerOutput();
             return _employerRepository.FindEmployers().Result
                 .ConvertAll(
-                new Converter<Employer, ConsultEmployerOutput>(obj => output.convert(obj))
+                new Converter<Employer, ConsultEmployerOutput>(obj => output.Convert(obj))
                 );
         }
     }

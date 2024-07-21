@@ -5,16 +5,16 @@ namespace FirstApi.Application.UseCases.CasesEmployer.UpdateEmployer
 {
     public class UpdateEmployerInput
     {
-        public int _Id { get; set; }
-        public string? _Nome { get; set; }
-        public string? _Cargo { get; set; }
-        public Payment? _Payment { get; set; }
+        public int Id { get; set; }
+        public string? Nome { get; set; }
+        public string? Cargo { get; set; }
+        public Payment? Payment { get; set; }
 
-        internal Employer updateEmployer(Employer actualEmployer)
+        internal Employer Convert(Employer actualEmployer)
         {
-            actualEmployer.payment = _Payment is null ? actualEmployer.payment : _Payment;
-            actualEmployer.Nome = _Nome is null ? actualEmployer.Nome : _Nome;
-            actualEmployer.cargo = _Cargo is null ? actualEmployer.cargo : _Cargo;
+            actualEmployer.payment = Payment is null ? actualEmployer.payment : Payment;
+            actualEmployer.Nome = Nome is null ? actualEmployer.Nome : Nome;
+            actualEmployer.cargo = Cargo is null ? actualEmployer.cargo : Cargo;
             return actualEmployer;
         }
     }

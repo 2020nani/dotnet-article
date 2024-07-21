@@ -1,9 +1,7 @@
-﻿using FirstApi.Application.UseCases.CasesEmployer;
-using FirstApi.Application.UseCases.CasesEmployer.ConsultEmployer;
+﻿using FirstApi.Application.UseCases.CasesEmployer.ConsultEmployer;
 using FirstApi.Application.UseCases.CasesEmployer.DeleteEmployer;
 using FirstApi.Application.UseCases.CasesEmployer.Register;
 using FirstApi.Application.UseCases.CasesEmployer.UpdateEmployer;
-using FirstApi.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FirstApi.Infrastructure.Controllers
@@ -12,10 +10,10 @@ namespace FirstApi.Infrastructure.Controllers
     [ApiController]
     public class EmployerController
     {
-        private  IRegisterEmployerService _registerService;
-        private IUpdateEmployerService _updateService;
-        private IConsultEmployerService _consultService;
-        private IDeleteEmployerService _deleteService;
+        private readonly IRegisterEmployerService _registerService;
+        private readonly IUpdateEmployerService _updateService;
+        private readonly IConsultEmployerService _consultService;
+        private readonly IDeleteEmployerService _deleteService;
 
         public EmployerController(
             IRegisterEmployerService service,

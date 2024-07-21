@@ -3,11 +3,17 @@ using FirstApi.Application.UseCases.CasesEmployer.ConsultEmployer;
 using FirstApi.Application.UseCases.CasesEmployer.DeleteEmployer;
 using FirstApi.Application.UseCases.CasesEmployer.Register;
 using FirstApi.Application.UseCases.CasesEmployer.UpdateEmployer;
+using FirstApi.Application.UseCases.CasesUser.ConsultUser;
+using FirstApi.Application.UseCases.CasesUser.DeleteUser;
+using FirstApi.Application.UseCases.CasesUser.RegisterUser;
+using FirstApi.Application.UseCases.CasesUser.UpdateUser;
 using FirstApi.Domain.Repositories;
 using FirstApi.Infrastructure.Data;
 using FirstApi.Infrastructure.Handler;
+using FirstApi.Infrastructure.Integration.ViaCep.Refit;
 using FirstApi.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Refit;
 
 namespace FirstApi
 {
@@ -18,12 +24,27 @@ namespace FirstApi
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddDbContext<SystemDbContext>(
                 options => options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
-            // Add services to the container.
+            // Add repositories to the container.
             builder.Services.AddScoped<IEmployerRepository, EmployerRepository>();
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
+            // Add services to the container.
+            // employer
             builder.Services.AddScoped<IRegisterEmployerService, RegisterEmployerService>();
             builder.Services.AddScoped<IUpdateEmployerService, UpdateEmployerService>();
             builder.Services.AddScoped<IConsultEmployerService, ConsultEmployerService>();
             builder.Services.AddScoped<IDeleteEmployerService, DeleteEmployerService>();
+            // user
+            builder.Services.AddScoped<IRegisterUserService, RegisterUserService>();
+            builder.Services.AddScoped<IUpdateUserService, UpdateUserService>();
+            builder.Services.AddScoped<IConsultUserService, ConsultUserService>();
+            builder.Services.AddScoped<IDeleteUserService, DeleteUserService>();
+
+            // Add client refit
+            builder.Services.AddRefitClient<IViaCepIntegrationRefit>().ConfigureHttpClient(c =>
+            {
+                c.BaseAddress = new Uri("https://viacep.com.br");
+            }
+            );
             
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

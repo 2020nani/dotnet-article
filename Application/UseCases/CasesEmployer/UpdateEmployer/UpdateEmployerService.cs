@@ -16,12 +16,12 @@ namespace FirstApi.Application.UseCases.CasesEmployer.UpdateEmployer
         UpdateEmployerOutput IUpdateEmployerService.Execute(UpdateEmployerInput input)
         {
             UpdateEmployerOutput output = new UpdateEmployerOutput();
-            Employer actualEmployer = _employerRepository.FindEmployer(input._Id).Result;
+            Employer actualEmployer = _employerRepository.FindEmployer(input.Id).Result;
             if (actualEmployer == null)
             {
-                throw new AppNotFoundException($"Usuario com id: {input._Id} nao encontrado");
+                throw new AppNotFoundException($"Usuario com id: {input.Id} nao encontrado");
             };
-            Employer newData = _employerRepository.UpdateEmployer(input.updateEmployer(actualEmployer)).Result;
+            Employer newData = _employerRepository.UpdateEmployer(input.Convert(actualEmployer)).Result;
             return output.convert(newData);
         }
     }

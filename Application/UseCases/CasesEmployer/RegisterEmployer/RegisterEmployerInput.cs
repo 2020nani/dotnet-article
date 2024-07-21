@@ -6,19 +6,19 @@ namespace FirstApi.Application.UseCases.CasesEmployer.Register
 {
     public class RegisterEmployerInput
     {
-        public string? _Nome { get; set; }
-        public string? _Cargo { get; set; }
-        public Payment? _Payment { get; set; }
-        public double? _Premiation { get; set; }
-        public Employer convert()
+        public string? Nome { get; set; }
+        public string? Cargo { get; set; }
+        public Payment? Payment { get; set; }
+        public double? Premiation { get; set; }
+        public Employer Convert()
         {
             Employer employer = new Employer();
-            employer.Nome = _Nome;
-            employer.cargo = _Cargo;
-            employer.payment = _Payment;
-            employer.paymentTotal = _Payment?.getPaymentTotal();
-            if ( _Premiation != null) {
-                employer.addPaymentByPremiation((double)_Premiation);
+            employer.Nome = Nome;
+            employer.cargo = Cargo;
+            employer.payment = Payment;
+            employer.paymentTotal = Payment?.getPaymentTotal();
+            if ( Premiation != null) {
+                employer.addPaymentByPremiation((double)Premiation);
             }
             return employer;
         }

@@ -14,7 +14,7 @@ namespace FirstApi.Application.UseCases.CasesEmployer.Register
         public RegisterEmployerOutput Execute(RegisterEmployerInput employerInput)
         {
             RegisterEmployerOutput output = new RegisterEmployerOutput();
-            output.Employer = _employerRepository.Register(employerInput.convert()).Result;
+            output.Employer = _employerRepository.Register(employerInput.Convert()).Result;
             return output;
         }
     }

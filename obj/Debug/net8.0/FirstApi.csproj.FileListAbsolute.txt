@@ -106,3 +106,5 @@ C:\Users\Dell\source\repos\FirstApi\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.W
 C:\Users\Dell\source\repos\FirstApi\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Dell\source\repos\FirstApi\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Dell\source\repos\FirstApi\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Dell\source\repos\FirstApi\bin\Debug\net8.0\Refit.dll
+C:\Users\Dell\source\repos\FirstApi\bin\Debug\net8.0\Refit.HttpClientFactory.dll
