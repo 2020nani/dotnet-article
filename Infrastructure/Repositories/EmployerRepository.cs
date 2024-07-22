@@ -21,9 +21,10 @@ namespace FirstApi.Infrastructure.Repositories
             return employer;
         }
 
-        void IEmployerRepository.DeleteEmployer(Employer employer)
+        async void IEmployerRepository.DeleteEmployer(Employer employer)
         {
             _Dbcontext.Employers.Remove(employer);
+            await _Dbcontext.SaveChangesAsync();
         }
 
         async Task<Employer> IEmployerRepository.UpdateEmployer(Employer employer)

@@ -1,6 +1,5 @@
 ﻿using FirstApi.Domain.Entities;
 using FirstApi.Domain.ValueObjects;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FirstApi.Application.UseCases.CasesEmployer.ConsultEmployer
 {

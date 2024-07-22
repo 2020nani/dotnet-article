@@ -14,9 +14,10 @@ namespace FirstApi.Infrastructure.Repositories
             _Dbcontext = dbcontext;
         }
 
-        void IUserRepository.DeleteUser(User user)
+        async void IUserRepository.DeleteUser(User user)
         {
             _Dbcontext.Users.Remove(user);
+            await _Dbcontext.SaveChangesAsync();
         }
 
         async Task<User> IUserRepository.FindUser(int id)
