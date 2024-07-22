@@ -13,10 +13,12 @@ namespace FirstApi.Infrastructure.Data
         }
 
         public DbSet<Employer> Employers { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new EmployerMap());
+            modelBuilder.ApplyConfiguration(new UserMap());
             base.OnModelCreating(modelBuilder);
         }
     }

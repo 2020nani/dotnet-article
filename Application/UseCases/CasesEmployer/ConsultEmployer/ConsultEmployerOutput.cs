@@ -16,9 +16,9 @@ namespace FirstApi.Application.UseCases.CasesEmployer.ConsultEmployer
         {
             Id = employer.Id;
             Nome = employer.Nome;
-            Cargo = employer.cargo;
-            Payment = employer.payment;
-            PaymentTotal = employer.paymentTotal;
+            Cargo = employer.Cargo;
+            Payment = employer.Payment;
+            PaymentTotal = employer.PaymentTotal;
             return this;
         }
     }

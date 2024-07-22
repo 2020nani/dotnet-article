@@ -4,12 +4,12 @@ namespace FirstApi.Application.UseCases.CasesUser.ConsultUser
 {
     public class ConsultUserOutput
     {
-        public string? _Name;
-        public string? _Email;
+        public string? Name;
+        public string? Email;
 
         public ConsultUserOutput Convert(User user) {
-            _Name = user.Name;
-            _Email = user.Email;
+            Name = user.Name;
+            Email = user.Email;
             return this;    
         }
     }

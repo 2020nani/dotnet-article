@@ -12,9 +12,9 @@ namespace FirstApi.Application.UseCases.CasesEmployer.UpdateEmployer
 
         internal Employer Convert(Employer actualEmployer)
         {
-            actualEmployer.payment = Payment is null ? actualEmployer.payment : Payment;
+            actualEmployer.Payment = Payment is null ? actualEmployer.Payment : Payment;
             actualEmployer.Nome = Nome is null ? actualEmployer.Nome : Nome;
-            actualEmployer.cargo = Cargo is null ? actualEmployer.cargo : Cargo;
+            actualEmployer.Cargo = Cargo is null ? actualEmployer.Cargo : Cargo;
             return actualEmployer;
         }
     }

@@ -2,8 +2,6 @@
 using FirstApi.Domain.Repositories;
 using FirstApi.Domain.Entities;
 using FirstApi.Infrastructure.CustomException;
-using FirstApi.Application.UseCases.CasesEmployer.ConsultEmployer;
-using FirstApi.Infrastructure.Repositories;
 
 namespace FirstApi.Application.UseCases.CasesUser.ConsultUser
 {

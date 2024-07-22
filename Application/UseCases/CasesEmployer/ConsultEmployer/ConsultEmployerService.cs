@@ -8,10 +8,12 @@ namespace FirstApi.Application.UseCases.CasesEmployer.ConsultEmployer
     public class ConsultEmployerService : IConsultEmployerService
     {
         private readonly IEmployerRepository _employerRepository;
+        private readonly ILogger<ConsultEmployerService> _logger;
 
-        public ConsultEmployerService(IEmployerRepository employerRepository)
+        public ConsultEmployerService(IEmployerRepository employerRepository, ILogger<ConsultEmployerService> logger)
         {
             _employerRepository = employerRepository;
+            _logger = logger;
         }
 
         ConsultEmployerOutput IConsultEmployerService.FindEmployerById(int id)
@@ -20,6 +22,7 @@ namespace FirstApi.Application.UseCases.CasesEmployer.ConsultEmployer
             Employer employer = _employerRepository.FindEmployer(id).Result;
             if (employer == null)
             {
+                _logger.LogInformation("Employer is null");
                 throw new AppNotFoundException($"Employer com id: {id} nao encontrado");
             };
             return output.Convert(employer);

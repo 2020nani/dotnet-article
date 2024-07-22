@@ -8,7 +8,7 @@ namespace FirstApi.Application.UseCases.CasesEmployer.UpdateEmployer
         public string? Name { get; set; }
         public string? Message { get; set; }
 
-        public UpdateEmployerOutput convert(Employer actualEmployer)
+        public UpdateEmployerOutput Convert(Employer actualEmployer)
         {
             Id = actualEmployer.Id;
             Name = actualEmployer.Nome;

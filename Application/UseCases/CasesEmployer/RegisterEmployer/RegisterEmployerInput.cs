@@ -14,11 +14,11 @@ namespace FirstApi.Application.UseCases.CasesEmployer.Register
         {
             Employer employer = new Employer();
             employer.Nome = Nome;
-            employer.cargo = Cargo;
-            employer.payment = Payment;
-            employer.paymentTotal = Payment?.getPaymentTotal();
+            employer.Cargo = Cargo;
+            employer.Payment = Payment;
+            employer.PaymentTotal = Payment?.getPaymentTotal();
             if ( Premiation != null) {
-                employer.addPaymentByPremiation((double)Premiation);
+                employer.AddPaymentByPremiation((double)Premiation);
             }
             return employer;
         }

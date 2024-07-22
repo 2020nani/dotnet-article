@@ -8,14 +8,14 @@ namespace FirstApi.Domain.Entities
     {
         public int Id { get; set; }
         public string? Nome { get; set; }
-        public string? cargo { get; set; }
+        public string? Cargo { get; set; }
 
-        public Payment? payment { get; set; }
-        public double? paymentTotal { get; set; }
+        public Payment? Payment { get; set; }
+        public double? PaymentTotal { get; set; }
 
-        public void addPaymentByPremiation(double premiation)
+        public void AddPaymentByPremiation(double premiation)
         {
-            paymentTotal = paymentTotal + premiation;
+            PaymentTotal = PaymentTotal + premiation;
         }
     }
 }

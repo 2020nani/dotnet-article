@@ -1,6 +1,7 @@
 ﻿using FirstApi.Domain.Entities;
 using FirstApi.Domain.Repositories;
 using FirstApi.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace FirstApi.Infrastructure.Repositories
 {
@@ -15,27 +16,31 @@ namespace FirstApi.Infrastructure.Repositories
 
         void IUserRepository.DeleteUser(User user)
         {
-            throw new NotImplementedException();
+            _Dbcontext.Users.Remove(user);
         }
 
-        Task<User> IUserRepository.FindUser(int id)
+        async Task<User> IUserRepository.FindUser(int id)
         {
-            throw new NotImplementedException();
+            return await _Dbcontext.Users.FirstOrDefaultAsync(u => u.Id == id);
         }
 
-        Task<List<User>> IUserRepository.FindUsers()
+        async Task<List<User>> IUserRepository.FindUsers()
         {
-            throw new NotImplementedException();
+            return await _Dbcontext.Users.ToListAsync();
         }
 
-        Task<User> IUserRepository.Register(User user)
+        async Task<User> IUserRepository.Register(User user)
         {
-            throw new NotImplementedException();
+            await _Dbcontext.Users.AddAsync(user);
+            _Dbcontext.SaveChanges();
+            return user;
         }
 
-        Task<User> IUserRepository.UpdateUser(User user)
+        async Task<User> IUserRepository.UpdateUser(User user)
         {
-            throw new NotImplementedException();
+            _Dbcontext.Users.Update(user);
+            await _Dbcontext.SaveChangesAsync();
+            return user;
         }
     }
 }

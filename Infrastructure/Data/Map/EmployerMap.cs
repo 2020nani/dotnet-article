@@ -11,15 +11,15 @@ namespace FirstApi.Infrastructure.Data.Map
         {
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Nome).IsRequired().HasMaxLength(255);
-            builder.Property(x => x.cargo).IsRequired().HasMaxLength(255);
-            builder.Property(x => x.paymentTotal).IsRequired();
+            builder.Property(x => x.Cargo).IsRequired().HasMaxLength(255);
+            builder.Property(x => x.PaymentTotal).IsRequired();
             builder.ToTable("Employers")
-                .OwnsOne(x => x.payment, x =>
+                .OwnsOne(x => x.Payment, x =>
                 {
-                    x.Property(a => a.salary)
+                    x.Property(a => a.Salary)
                     .HasColumnName("salary")
                     .IsRequired();
-                    x.Property(a => a.benefits)
+                    x.Property(a => a.Benefits)
                     .HasColumnName("benefits")
                     .IsRequired()
                     .HasDefaultValue(0);

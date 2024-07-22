@@ -7,9 +7,11 @@ using FirstApi.Application.UseCases.CasesUser.ConsultUser;
 using FirstApi.Application.UseCases.CasesUser.DeleteUser;
 using FirstApi.Application.UseCases.CasesUser.RegisterUser;
 using FirstApi.Application.UseCases.CasesUser.UpdateUser;
+using FirstApi.Application.UseCases.PasswordHasher;
 using FirstApi.Domain.Repositories;
 using FirstApi.Infrastructure.Data;
 using FirstApi.Infrastructure.Handler;
+using FirstApi.Infrastructure.Integration.ViaCep;
 using FirstApi.Infrastructure.Integration.ViaCep.Refit;
 using FirstApi.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -22,6 +24,11 @@ namespace FirstApi
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            // Configure logging
+            builder.Logging.ClearProviders();
+            builder.Logging.AddConsole();
+            builder.Logging.AddDebug();
+            // Configure data base access
             builder.Services.AddDbContext<SystemDbContext>(
                 options => options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
             // Add repositories to the container.
@@ -38,7 +45,9 @@ namespace FirstApi
             builder.Services.AddScoped<IUpdateUserService, UpdateUserService>();
             builder.Services.AddScoped<IConsultUserService, ConsultUserService>();
             builder.Services.AddScoped<IDeleteUserService, DeleteUserService>();
-
+            builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
+            // client viacep
+            builder.Services.AddScoped<IViaCepIntegrationService, ViaCepIntegrationService>();
             // Add client refit
             builder.Services.AddRefitClient<IViaCepIntegrationRefit>().ConfigureHttpClient(c =>
             {
