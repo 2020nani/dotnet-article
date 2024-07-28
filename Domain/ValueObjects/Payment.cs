@@ -1,6 +1,4 @@
-﻿using System.Numerics;
-
-namespace FirstApi.Domain.ValueObjects
+﻿namespace FirstApi.Domain.ValueObjects
 {
     public class Payment
     {
@@ -10,7 +8,7 @@ namespace FirstApi.Domain.ValueObjects
         public double getPaymentTotal()
         {
             return Salary + Benefits;
-    }
+        }
     }
 
 }

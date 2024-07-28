@@ -9,5 +9,7 @@ namespace FirstApi.Domain.Repositories
         Task<User> Register(User user);
         Task<User> UpdateUser(User user);
         void DeleteUser(User user);
+
+        Task<User> FindUserByEmail(string email);
     }
 }

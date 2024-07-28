@@ -6,10 +6,12 @@ using FirstApi.Application.UseCases.CasesUser.RegisterUser;
 using FirstApi.Application.UseCases.CasesUser.UpdateUser;
 using FirstApi.Infrastructure.CustomException;
 using FirstApi.Infrastructure.Integration.ViaCep;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FirstApi.Infrastructure.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UserController

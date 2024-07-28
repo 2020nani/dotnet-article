@@ -1,6 +1,4 @@
 ﻿using FirstApi.Domain.ValueObjects;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Numerics;
 
 namespace FirstApi.Domain.Entities
 {

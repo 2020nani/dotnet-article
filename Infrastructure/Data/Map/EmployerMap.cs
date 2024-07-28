@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
 using FirstApi.Domain.Entities;
-using FirstApi.Domain.ValueObjects;
 
 namespace FirstApi.Infrastructure.Data.Map
 {

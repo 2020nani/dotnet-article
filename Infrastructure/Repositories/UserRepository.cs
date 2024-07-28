@@ -43,5 +43,10 @@ namespace FirstApi.Infrastructure.Repositories
             await _Dbcontext.SaveChangesAsync();
             return user;
         }
+
+        async Task<User> IUserRepository.FindUserByEmail(string email)
+        {
+            return await _Dbcontext.Users.FirstOrDefaultAsync(u => u.Email == email);
+        }
     }
 }

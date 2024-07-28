@@ -2,10 +2,12 @@
 using FirstApi.Application.UseCases.CasesEmployer.DeleteEmployer;
 using FirstApi.Application.UseCases.CasesEmployer.Register;
 using FirstApi.Application.UseCases.CasesEmployer.UpdateEmployer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FirstApi.Infrastructure.Controllers
 {
+    [Authorize] 
     [Route("api/[controller]")]
     [ApiController]
     public class EmployerController

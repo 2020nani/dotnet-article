@@ -108,3 +108,11 @@ C:\Users\Dell\source\repos\FirstApi\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnaly
 C:\Users\Dell\source\repos\FirstApi\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Dell\source\repos\FirstApi\bin\Debug\net8.0\Refit.dll
 C:\Users\Dell\source\repos\FirstApi\bin\Debug\net8.0\Refit.HttpClientFactory.dll
+C:\Users\Dell\source\repos\FirstApi\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Dell\source\repos\FirstApi\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Dell\source\repos\FirstApi\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Dell\source\repos\FirstApi\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Dell\source\repos\FirstApi\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Dell\source\repos\FirstApi\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Dell\source\repos\FirstApi\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Dell\source\repos\FirstApi\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
