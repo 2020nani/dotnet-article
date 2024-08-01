@@ -7,3 +7,5 @@ Add-Migration InitialDB -Context SystemDbContext
  * Criar tabelas no database a partir das migrations geradas
  - Update-Database -Context <nome do contexto a ser migrado>
  */
+ -Remover Migration
+ Remove-Migration InitialDB -Context <nome do contexto a ser removido>

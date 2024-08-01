@@ -37,6 +37,7 @@ namespace FirstApi.Migrations
                     Name = table.Column<string>(type: "character varying(255)", maxLength: 255, nullable: false),
                     Email = table.Column<string>(type: "text", nullable: false),
                     Password = table.Column<string>(type: "text", nullable: false),
+                    Roles = table.Column<string>(type: "text", nullable: false),
                     cep = table.Column<string>(type: "text", nullable: true),
                     logradouro = table.Column<string>(type: "text", nullable: true),
                     complemento = table.Column<string>(type: "text", nullable: true),

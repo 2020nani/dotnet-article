@@ -1,6 +1,7 @@
 ﻿using FirstApi.Application.CustomValidations;
 using FirstApi.Application.UseCases.PasswordHasher;
 using FirstApi.Domain.Entities;
+using FirstApi.Domain.Enums;
 using FirstApi.Infrastructure.Integration.ViaCep;
 using System.ComponentModel.DataAnnotations;
 
@@ -14,6 +15,7 @@ namespace FirstApi.Application.UseCases.CasesUser.RegisterUser
         public required string Email { get; set; }
         [Password(ErrorMessage = "Password must be at least 8 characters long and contain an uppercase letter, a lowercase letter, a number, and a special character.")]
         public string? Password { get; set; }
+        public List<Roles>? Roles { get; set; }
         public string? Cep { get; set; }
 
         public User Convert(IPasswordHasher hasher, ViaCepResponse response)
@@ -23,6 +25,7 @@ namespace FirstApi.Application.UseCases.CasesUser.RegisterUser
             user.Name = Name;
             user.Password = hasher.Hash(Password);
             user.Email = Email;
+            user.Roles = Roles;
             user.Endereco = user.GetEndereco(response);
             return user;
         }

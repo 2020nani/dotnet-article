@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FirstApi.Infrastructure.Controllers
 {
-    [Authorize] 
+    [Authorize(Roles = "ADMIN,USERCOMMON")]
     [Route("api/[controller]")]
     [ApiController]
     public class EmployerController

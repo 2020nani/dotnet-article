@@ -1,10 +1,11 @@
 ﻿using FirstApi.Application.UseCases.PasswordHasher;
 using FirstApi.Domain.Entities;
+using FirstApi.Domain.Enums;
 using FirstApi.Domain.Repositories;
 using FirstApi.Infrastructure.CustomException;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
 using System.Text;
 
@@ -31,28 +32,30 @@ namespace FirstApi.Application.UseCases.CasesAuth.Login
 
             if (_passwordHasher.Verify(user.Password, input.Password))
             {
-                return new LoginOutput().Convert(user, this.generateJwtToken());
+                return new LoginOutput().Convert(user, this.generateJwtToken(user.Roles));
             }
 
             throw new BadHttpRequestException("Credenciais Invalidas");
 
         }
 
-        private string generateJwtToken()
+        private string generateJwtToken(List<Roles> roles)
         {
             string secretKey = "e0606215-c2e4-46fe-8d73-a77e1fa4f45a";
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
-            var claims = new[]
+            var claims = new List<Claim>
             {
                 new Claim("login","admin"),
                 new Claim("name", "System Administrator")
             };
 
+            claims.AddRange(roles.Select(role => new Claim(ClaimTypes.Role, role.ToString())));
+
             var token = new JwtSecurityToken(
                 issuer: "emprise",
                 audience: "firstApi",
                 claims: claims,
-                expires: new DateTime().AddHours(2),
+                expires: DateTime.UtcNow.AddHours(2),
                 signingCredentials: new SigningCredentials(key, SecurityAlgorithms.HmacSha256)
                 );
 

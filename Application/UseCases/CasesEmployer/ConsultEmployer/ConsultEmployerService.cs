@@ -30,11 +30,8 @@ namespace FirstApi.Application.UseCases.CasesEmployer.ConsultEmployer
 
         List<ConsultEmployerOutput> IConsultEmployerService.FindEmployers()
         {
-            ConsultEmployerOutput output = new ConsultEmployerOutput();
             return _employerRepository.FindEmployers().Result
-                .ConvertAll(
-                new Converter<Employer, ConsultEmployerOutput>(obj => output.Convert(obj))
-                );
+                .Select(obj => new ConsultEmployerOutput().Convert(obj)).ToList();
         }
     }
 }

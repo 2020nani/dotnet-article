@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FirstApi.Infrastructure.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "ADMIN")]
     [Route("api/[controller]")]
     [ApiController]
     public class UserController

@@ -26,12 +26,11 @@ namespace FirstApi.Application.UseCases.CasesUser.ConsultUser
 
         List<ConsultUserOutput> IConsultUserService.FindUsers()
         {
-            ConsultUserOutput output = new ConsultUserOutput();
+            
             return _repository.FindUsers()
                 .Result
-                .ConvertAll(
-                new Converter<User, ConsultUserOutput>(obj => output.Convert(obj))
-                );
+                .Select(obj => new ConsultUserOutput().Convert(obj)).ToList();
+                
         }
     }
 }

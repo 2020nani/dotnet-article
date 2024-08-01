@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FirstApi.Migrations
 {
     [DbContext(typeof(SystemDbContext))]
-    [Migration("20240721104108_InitialDB")]
+    [Migration("20240728181009_InitialDB")]
     partial class InitialDB
     {
         /// <inheritdoc />
@@ -70,6 +70,10 @@ namespace FirstApi.Migrations
                         .HasColumnType("character varying(255)");
 
                     b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Roles")
                         .IsRequired()
                         .HasColumnType("text");
 
